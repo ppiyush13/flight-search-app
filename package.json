@@ -1,0 +1,24 @@
+{
+  "name": "tw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "ppiyush13",
+  "devDependencies": {
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  }
+}

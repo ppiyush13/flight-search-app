@@ -1,0 +1,120 @@
+<html>
+	<head>
+		<title>Flight</title>
+		<script type="text/javascript" src="dist/bundle.js"></script>
+		<link rel='stylesheet' href='dist/style.main.css'>
+	</head>
+	<body>
+		<div class="container">
+			<div class="wrapper">
+				<header class="header">
+					<h3>Flight Search Engine</h3>
+				</header>
+				<div class="search-bar">
+					<div class="tab-container">
+						<div class="tab-bar clearfix">
+							<span class="tab selected" value="oneWay">One Way</span>
+							<span class="tab" value="return">Return</span>
+						</div>
+						<div class="tab-pane">
+							<div class="tab-item">
+								<input type="text" placeholder="Enter Origin City" id="search-origin" bind="origin"/>
+							</div>
+							<div class="tab-item">
+								<input type="text" placeholder="Enter Destination City" id="search-dest" bind="dest"/>
+							</div>
+							<div class="tab-item">
+								<input type="date" placeholder="Enter Departure Date" id="search-depart-date" bind="departDate"/>
+							</div>
+							<div class="tab-item" id="return-date">
+								<input type="date" placeholder="Enter Return Date" id="search-return-date" bind="returnDate"/>
+							</div>
+							<div class="tab-item">
+								<select id="search-passengers" bind="passengers">
+									<option value="" disabled selected hidden>Passengers</option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+								</select>
+							</div>
+							<div class="tab-item span-two">
+								<input type="submit" value="Search" id="search-btn">
+							</div>
+						</div>
+					</div>
+					<div class="slider-pane">
+						<div>Refine flight search</div>
+						<div class="relative-box">
+							<input type="range" multiple value="2500,15000" name="Price" min="0" max="15000" step="100"
+							bind1='{"value":"rangeValue", "min":"rangeMin", "max":"rangeMax"}' />
+						</div>
+						<div class="range-value clearfix">
+							<span></span>
+							<span></span>
+						</div>
+					</div>
+				</div>
+				<div class="result-bar">
+					<div class="journey-details clearfix">
+						<div class="journey-location">Pune > Delhi > Pune</div>
+						<div class="journey-dates">
+							<div id="journey-dates-depart">
+								<span>Depart: </span>
+								<span>17th Jul 2018</span>
+							</div>
+							<div id="journey-dates-return">
+								<span>Return: </span>
+								<span>24th Jul 2018</span>
+							</div>
+						</div>
+					</div>
+					<div class="flight-result">
+						<div class="flight hbox">
+							<div class="flight-details vbox">
+								<div class="price"><h1>Rs. 9,500.00</h1></div>
+								<div class="flight-venue">
+									<div class="flight-venue-route source-venue">
+										<div class="flight-no font-70">AI-202</div>
+										<div class="flight-route">PNQ > DEL</div>
+										<div class="flight-depart">
+											<span>Depart: </span>
+											<span>10:00 AM</span>
+										</div>
+										<div class="flight-arrive">
+											<span>Arrive: </span>
+											<span>12:00 PM</span>
+										</div>
+									</div>
+									<div class="flight-venue-route dest-venue" >
+										<div class="flight-no font-70">AI-202</div>
+										<div class="flight-route">PNQ > DEL</div>
+										<div class="flight-depart">
+											<span>Depart: </span>
+											<span>10:00 AM</span>
+										</div>
+										<div class="flight-arrive">
+											<span>Arrive: </span>
+											<span>12:00 PM</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="flight-info vbox">
+								<div class="flight-logo">
+									<i class="domAirLogo size-70 fl x6E"></i>
+								</div>
+								<div class="flight-book">
+									<input type="button" value="Book" class="flight-book-btn"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

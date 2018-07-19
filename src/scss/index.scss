@@ -1,0 +1,286 @@
+html,body {
+    margin: 0;
+    outline: none;
+    padding: 0;
+    font-weight: normal;
+    list-style: none;
+}
+body{
+	font: normal 1.14em/20px $base-font, sans-serif;
+}
+*::placeholder{
+	font: normal 0.9em/20px 'Fira Sans', sans-serif;
+}
+input,select{
+	padding: 5px;
+	outline: none;
+}
+input[type="button"], input[type="submit"]{
+	background: #35cbe9;
+    border: 1px solid black;
+    color: white;
+    font: normal 0.8em/20px 'Fira Sans', sans-serif;
+    cursor: pointer;
+}
+@mixin vbox{
+	display: flex;
+	flex-direction: column;
+}
+@mixin hbox{
+	display: flex;
+	flex-direction: row;
+}
+@mixin round-border{
+	border-radius: 1px solid black;
+}
+
+
+
+.vbox{
+	@include vbox;
+}
+.hbox{
+	@include hbox;
+}
+.font-80{
+	font-size: 0.8em;
+}
+.relative-box{
+	position: relative;
+}
+
+.container{
+	width: 80%;
+	margin: 15px auto
+}
+.header {
+	grid-area: header;
+}
+.search-bar {
+	grid-area: search-bar;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 15px;
+	align-content: start;
+}
+
+.result-bar{
+	grid-area: result-bar;
+}
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: minmax(200px,3fr) 7fr;
+  grid-template-areas: 
+    "header header"
+	"search-bar result-bar";
+}
+.wrapper > * {
+    border: 2px solid #31adc5;
+    background-color: #35cbe9;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+
+.tab-item > *{
+	width: 90%;
+    margin: 2px 5%;
+}
+
+.tab{
+	float: left;
+	padding: 3px 5px;
+	background: #cddae6;
+	color: black;
+	cursor: pointer;
+	border-radius: 7px 5px 0px 0px;
+    border: 1px solid black;
+	font-size: 0.7em;
+    min-width: 65px;
+	text-align: center;
+	margin-bottom: -1px;
+}
+
+.tab.selected{
+	background: aliceblue;
+	border-bottom-color: transparent;
+	font-size: 0.8em;
+}
+
+.tab-pane{
+	background: aliceblue;
+	border: 1px solid black;
+	margin: auto;
+	padding: 7px 0px;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 5px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+input[name="Price"]{
+	width: 100%
+}
+
+.slider-pane{
+	color: black;
+	background: aliceblue;
+	border: 1px solid black;
+	padding: 5px 5%;
+}
+
+.range-value > span{
+	font-size: 0.6em;
+	float: left;
+}
+
+.range-value > span:nth-child(2){
+	float: right;
+}
+
+
+/*
+	Search result pane
+*/
+
+.journey-details{
+	padding: 15px 0px;
+}
+.journey-location{
+	float: left;
+	font-size: 1.5em;
+    line-height: 1.5em;
+}
+.journey-dates{
+	float: right;
+	font-size: 0.8em;
+}
+
+.flight{
+	border: 1px solid black;
+	background: white;
+	color: black;
+	margin-bottom: 12px;
+	padding: 10px;
+	border-radius: 5px;
+}
+.flight-info{
+	justify-content: space-around
+}
+.flight-book > input{
+	width: 100%;
+}
+.flight-details{
+	flex-grow: 1
+}
+.flight-venue{
+	@include hbox;
+	justify-content: space-around;
+}
+.flight-venue-route{
+	@include vbox;
+}
+.flight-logo{
+	margin-bottom: 5px;
+	
+	i:nth-child(2){
+		margin-left: 5px;
+	}
+} 
+
+/*
+	Media queries
+*/
+
+/*
+	For desktop
+*/
+@media (min-width: 1200px) {
+	.flight-venue{
+		@include vbox;
+	}
+	
+	.flight-venue-route{
+		@include hbox;
+		justify-content: space-around;
+	}
+}
+@media (min-width: 790px) {
+	.flight-result{
+		max-height: 450px;
+		min-height: 400px;
+		overflow:auto;
+	}
+}
+
+/*
+	For tabs
+*/
+@media (max-width: 790px) {
+	.wrapper {
+		grid-template-columns: 1fr;
+		grid-gap: 5px;
+		grid-template-areas: 
+			"header"
+			"search-bar"
+			"result-bar";
+	}
+	.tab-pane{
+		grid-template-columns: 1fr 1fr;
+	}
+	.span-two{
+		grid-column: 1 / span 2;
+	}
+	.span-two > *{
+		width: 95%;
+		margin: 5px 2.5%;
+	}
+}
+
+/*
+	For mobile displays
+*/
+@media (max-width: 480px) {
+	body{
+		font: normal 0.7em/16px 'Fira Sans', sans-serif;
+	}
+	.container{
+		width: 100%;
+		margin: 0px;
+	}
+	.wrapper {
+		grid-template-columns: 1fr;
+		grid-gap: 5px;
+		grid-template-areas: 
+			"header"
+			"search-bar"
+			"result-bar";
+	}
+	.tab-pane{
+		grid-template-columns: 1fr;
+	}
+	
+	.span-two{
+		grid-column: inherit;
+	}
+	.span-two > *{
+		width: 90%;
+		margin: 2px 5%;
+	}
+}
+/*
+	For extra small mobiles
+*/
+@media (max-width: 300px) {
+	body{
+		font: normal 0.6em/14px 'Fira Sans', sans-serif;
+	}
+}
