@@ -1,12 +1,8 @@
-
-
 Steps to run this app:
 	1. npm i
 	2. npm run start 
 		To run app in development mode. It starts webpack-dev-server
-		
 		OR
-		
 		npm run build
 		To get production build files
 	
