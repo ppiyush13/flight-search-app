@@ -1,0 +1,631 @@
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans);
+html, body {
+  margin: 0;
+  outline: none;
+  padding: 0;
+  font-weight: normal;
+  list-style: none; }
+
+body {
+  font: normal 1.14em/20px "Fira Sans", sans-serif; }
+
+*::placeholder {
+  font: normal 0.9em/20px 'Fira Sans', sans-serif; }
+
+input, select {
+  padding: 5px;
+  outline: none; }
+
+input[type="button"], input[type="submit"] {
+  background: #35cbe9;
+  border: 1px solid black;
+  color: white;
+  font: normal 0.8em/20px 'Fira Sans', sans-serif;
+  cursor: pointer; }
+
+.vbox {
+  display: flex;
+  flex-direction: column; }
+
+.hbox {
+  display: flex;
+  flex-direction: row; }
+
+.font-80 {
+  font-size: 0.8em; }
+
+.relative-box {
+  position: relative; }
+
+.container {
+  width: 80%;
+  margin: 15px auto; }
+
+.header {
+  grid-area: header; }
+
+.search-bar {
+  grid-area: search-bar;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 15px;
+  align-content: start; }
+
+.result-bar {
+  grid-area: result-bar; }
+
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: minmax(200px, 3fr) 7fr;
+  grid-template-areas: "header header" "search-bar result-bar"; }
+
+.wrapper > * {
+  border: 2px solid #31adc5;
+  background-color: #35cbe9;
+  color: white;
+  border-radius: 5px;
+  padding: 10px; }
+
+.tab-item > * {
+  width: 90%;
+  margin: 2px 5%; }
+
+.tab {
+  float: left;
+  padding: 3px 5px;
+  background: #cddae6;
+  color: black;
+  cursor: pointer;
+  border-radius: 7px 5px 0px 0px;
+  border: 1px solid black;
+  font-size: 0.7em;
+  min-width: 65px;
+  text-align: center;
+  margin-bottom: -1px; }
+
+.tab.selected {
+  background: aliceblue;
+  border-bottom-color: transparent;
+  font-size: 0.8em; }
+
+.tab-pane {
+  background: aliceblue;
+  border: 1px solid black;
+  margin: auto;
+  padding: 7px 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 5px; }
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table; }
+
+input[name="Price"] {
+  width: 100%; }
+
+.slider-pane {
+  color: black;
+  background: aliceblue;
+  border: 1px solid black;
+  padding: 5px 5%; }
+
+.range-value > span {
+  font-size: 0.6em;
+  float: left; }
+
+.range-value > span:nth-child(2) {
+  float: right; }
+
+/*
+	Search result pane
+*/
+.journey-details {
+  padding: 15px 0px; }
+
+.journey-location {
+  float: left;
+  font-size: 1.5em;
+  line-height: 1.5em; }
+
+.journey-dates {
+  float: right;
+  font-size: 0.8em; }
+
+.flight {
+  border: 1px solid black;
+  background: white;
+  color: black;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 5px; }
+
+.flight-info {
+  justify-content: space-around; }
+
+.flight-book > input {
+  width: 100%; }
+
+.flight-details {
+  flex-grow: 1; }
+
+.flight-venue {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+
+.flight-venue-route {
+  display: flex;
+  flex-direction: column; }
+
+.flight-logo {
+  margin-bottom: 5px; }
+  .flight-logo i:nth-child(2) {
+    margin-left: 5px; }
+
+/*
+	Media queries
+*/
+/*
+	For desktop
+*/
+@media (min-width: 1200px) {
+  .flight-venue {
+    display: flex;
+    flex-direction: column; }
+  .flight-venue-route {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; } }
+
+@media (min-width: 790px) {
+  .flight-result {
+    max-height: 450px;
+    min-height: 400px;
+    overflow: auto; } }
+
+/*
+	For tabs
+*/
+@media (max-width: 790px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    grid-template-areas: "header" "search-bar" "result-bar"; }
+  .tab-pane {
+    grid-template-columns: 1fr 1fr; }
+  .span-two {
+    grid-column: 1 / span 2; }
+  .span-two > * {
+    width: 95%;
+    margin: 5px 2.5%; } }
+
+/*
+	For mobile displays
+*/
+@media (max-width: 480px) {
+  body {
+    font: normal 0.7em/16px 'Fira Sans', sans-serif; }
+  .container {
+    width: 100%;
+    margin: 0px; }
+  .wrapper {
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    grid-template-areas: "header" "search-bar" "result-bar"; }
+  .tab-pane {
+    grid-template-columns: 1fr; }
+  .span-two {
+    grid-column: inherit; }
+  .span-two > * {
+    width: 90%;
+    margin: 2px 5%; } }
+
+/*
+	For extra small mobiles
+*/
+@media (max-width: 300px) {
+  body {
+    font: normal 0.6em/14px 'Fira Sans', sans-serif; } }
+
+@supports (--css: variables) {
+  input[type="range"].multirange {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    vertical-align: top; }
+  input[type="range"].multirange.original {
+    position: absolute; }
+  input[type="range"].multirange.original::-webkit-slider-thumb {
+    position: relative;
+    z-index: 2; }
+  input[type="range"].multirange.original::-moz-range-thumb {
+    transform: scale(1);
+    /* FF doesn't apply position it seems */
+    z-index: 1; }
+  input[type="range"].multirange::-moz-range-track {
+    border-color: transparent;
+    /* needed to switch FF to "styleable" control */ }
+  input[type="range"].multirange.ghost {
+    position: relative;
+    background: var(--track-background);
+    --track-background: linear-gradient(to right,
+				transparent var(--low), var(--range-color) 0,
+				var(--range-color) var(--high), transparent 0
+			) no-repeat 0 45% / 100% 40%;
+    --range-color: hsl(190, 80%, 40%); }
+  input[type="range"].multirange.ghost::-webkit-slider-runnable-track {
+    background: var(--track-background); }
+  input[type="range"].multirange.ghost::-moz-range-track {
+    background: var(--track-background); } }
+
+.domAirLogo {
+  width: 70px;
+  height: 70px;
+  background: transparent url(/dist/fd696358c56478099e71af0bb0cdb527.png) 0 0 no-repeat;
+  background-size: 700px 140px;
+  float: left;
+  image-rendering: optimizequality;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast; }
+
+.domAirLogo.size-70 {
+  background-size: 700px 140px;
+  width: 70px;
+  height: 70px; }
+
+.size-70.x {
+  background-position: -0px -0px; }
+
+.size-70.x9W {
+  background-position: -70px -0px; }
+
+.size-70.x9w {
+  background-position: -70px -0px; }
+
+.size-70.x6E {
+  background-position: -140px -0px; }
+
+.size-70.x6e {
+  background-position: -140px -0px; }
+
+.size-70.xAI {
+  background-position: -210px -0px; }
+
+.size-70.xai {
+  background-position: -210px -0px; }
+
+.size-70.xic {
+  background-position: -210px -0px; }
+
+.size-70.xIC {
+  background-position: -210px -0px; }
+
+.size-70.xG8 {
+  background-position: -280px -0px; }
+
+.size-70.xg8 {
+  background-position: -280px -0px; }
+
+.size-70.x88 {
+  background-position: -280px -0px; }
+
+.size-70.xSG {
+  background-position: -350px -0px; }
+
+.size-70.xsg {
+  background-position: -350px -0px; }
+
+.size-70.xUK {
+  background-position: -420px -0px; }
+
+.size-70.x69 {
+  background-position: -420px -0px; }
+
+.size-70.xS2 {
+  background-position: -490px -0px; }
+
+.size-70.xs2 {
+  background-position: -490px -0px; }
+
+.size-70.x77 {
+  background-position: -490px -0px; }
+
+.size-70.x66 {
+  background-position: -490px -0px; }
+
+.size-70.x2T {
+  background-position: -560px -0px; }
+
+.size-70.xLB {
+  background-position: -630px -0px; }
+
+.size-70.xIX {
+  background-position: -0px -70px; }
+
+.size-70.xAK {
+  background-position: -70px -70px; }
+
+.size-70.xD7 {
+  background-position: -210px -70px; }
+
+.size-70.xXT {
+  background-position: -70px -70px; }
+
+.size-70.xFD {
+  background-position: -70px -70px; }
+
+.size-70.xI5 {
+  background-position: -70px -70px; }
+
+.size-70.xPQ {
+  background-position: -70px -70px; }
+
+.size-70.xQZ {
+  background-position: -70px -70px; }
+
+.size-70.xXJ {
+  background-position: -70px -70px; }
+
+.size-70.xZ2 {
+  background-position: -70px -70px; }
+
+.size-70.xJW {
+  background-position: -70px -70px; }
+
+.size-70.xOP {
+  background-position: -140px -70px; }
+
+.size-70.xmux {
+  background-position: -280px -70px; }
+
+.size-70.x61 {
+  background-position: -70px -0px; }
+
+.size-70.x62 {
+  background-position: -210px -0px; }
+
+.size-70.x63 {
+  background-position: -420px -0px; }
+
+.domAirLogo.size-28 {
+  background-size: 280px 56px;
+  width: 28px;
+  height: 28px; }
+
+.size-28.x {
+  background-position: -0px -0px; }
+
+.size-28.x9W {
+  background-position: -28px -0px; }
+
+.size-28.x9w {
+  background-position: -28px -0px; }
+
+.size-28.x6E {
+  background-position: -56px -0px; }
+
+.size-28.x6e {
+  background-position: -56px -0px; }
+
+.size-28.xAI {
+  background-position: -84px -0px; }
+
+.size-28.xai {
+  background-position: -84px -0px; }
+
+.size-28.xic {
+  background-position: -84px -0px; }
+
+.size-28.xIC {
+  background-position: -84px -0px; }
+
+.size-28.xG8 {
+  background-position: -112px -0px; }
+
+.size-28.xg8 {
+  background-position: -112px -0px; }
+
+.size-28.x88 {
+  background-position: -112px -0px; }
+
+.size-28.xSG {
+  background-position: -140px -0px; }
+
+.size-28.xsg {
+  background-position: -140px -0px; }
+
+.size-28.xUK {
+  background-position: -168px -0px; }
+
+.size-28.x69 {
+  background-position: -168px -0px; }
+
+.size-28.xS2 {
+  background-position: -196px -0px; }
+
+.size-28.xs2 {
+  background-position: -196px -0px; }
+
+.size-28.x77 {
+  background-position: -196px -0px; }
+
+.size-28.x66 {
+  background-position: -196px -0px; }
+
+.size-28.x2T {
+  background-position: -224px -0px; }
+
+.size-28.xLB {
+  background-position: -252px -0px; }
+
+.size-28.xIX {
+  background-position: -0px -28px; }
+
+.size-28.xAK {
+  background-position: -28px -28px; }
+
+.size-28.xD7 {
+  background-position: -84px -28px; }
+
+.size-28.xXT {
+  background-position: -28px -28px; }
+
+.size-28.xFD {
+  background-position: -28px -28px; }
+
+.size-28.xI5 {
+  background-position: -28px -28px; }
+
+.size-28.xPQ {
+  background-position: -28px -28px; }
+
+.size-28.xQZ {
+  background-position: -28px -28px; }
+
+.size-28.xXJ {
+  background-position: -28px -28px; }
+
+.size-28.xZ2 {
+  background-position: -28px -28px; }
+
+.size-28.xJW {
+  background-position: -28px -28px; }
+
+.size-28.xOP {
+  background-position: -56px -28px; }
+
+.size-28.xmux {
+  background-position: -112px -28px; }
+
+.size-28.x61 {
+  background-position: -28px -0px; }
+
+.size-28.x62 {
+  background-position: -84px -0px; }
+
+.size-28.x63 {
+  background-position: -168px -0px; }
+
+.domAirLogo.size-18 {
+  background-size: 180px 36px;
+  width: 18px;
+  height: 18px; }
+
+.size-18.x {
+  background-position: -0px -0px; }
+
+.size-18.x9W {
+  background-position: -18px -0px; }
+
+.size-18.x9w {
+  background-position: -18px -0px; }
+
+.size-18.x6E {
+  background-position: -36px -0px; }
+
+.size-18.x6e {
+  background-position: -36px -0px; }
+
+.size-18.xAI {
+  background-position: -54px -0px; }
+
+.size-18.xai {
+  background-position: -54px -0px; }
+
+.size-18.xic {
+  background-position: -54px -0px; }
+
+.size-18.xIC {
+  background-position: -54px -0px; }
+
+.size-18.xG8 {
+  background-position: -72px -0px; }
+
+.size-18.xg8 {
+  background-position: -72px -0px; }
+
+.size-18.x88 {
+  background-position: -72px -0px; }
+
+.size-18.xSG {
+  background-position: -90px -0px; }
+
+.size-18.xsg {
+  background-position: -90px -0px; }
+
+.size-18.xUK {
+  background-position: -108px -0px; }
+
+.size-18.x69 {
+  background-position: -108px -0px; }
+
+.size-18.xS2 {
+  background-position: -126px -0px; }
+
+.size-18.xs2 {
+  background-position: -126px -0px; }
+
+.size-18.x77 {
+  background-position: -126px -0px; }
+
+.size-18.x66 {
+  background-position: -126px -0px; }
+
+.size-18.x2T {
+  background-position: -144px -0px; }
+
+.size-18.xLB {
+  background-position: -162px -0px; }
+
+.size-18.xIX {
+  background-position: -0px -18px; }
+
+.size-18.xAK {
+  background-position: -18px -18px; }
+
+.size-18.xD7 {
+  background-position: -54px -18px; }
+
+.size-18.xXT {
+  background-position: -18px -18px; }
+
+.size-18.xFD {
+  background-position: -18px -18px; }
+
+.size-18.xI5 {
+  background-position: -18px -18px; }
+
+.size-18.xPQ {
+  background-position: -18px -18px; }
+
+.size-18.xQZ {
+  background-position: -18px -18px; }
+
+.size-18.xXJ {
+  background-position: -18px -18px; }
+
+.size-18.xZ2 {
+  background-position: -18px -18px; }
+
+.size-18.xJW {
+  background-position: -18px -18px; }
+
+.size-18.xOP {
+  background-position: -36px -18px; }
+
+.size-18.xmux {
+  background-position: -72px -18px; }
+
+.size-18.x61 {
+  background-position: -18px -0px; }
+
+.size-18.x62 {
+  background-position: -54px -0px; }
+
+.size-18.x63 {
+  background-position: -108px -0px; }
+
