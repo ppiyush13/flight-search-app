@@ -45,4 +45,4 @@ class ViewModel{
 	}
 }
 
-export default new ViewModel();
+export const vm = new ViewModel();

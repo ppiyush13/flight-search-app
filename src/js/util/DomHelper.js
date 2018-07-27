@@ -1,5 +1,5 @@
-import vm from './ViewModel';
-import util from './Util';
+import {vm} from '../view/ViewModel' 
+import {util} from '../util/Util'
 
 class DomHelper{
 	init(){
@@ -138,4 +138,4 @@ class DomHelper{
 	}
 }
 
-export default new DomHelper();
+export const domHelper =  new DomHelper();

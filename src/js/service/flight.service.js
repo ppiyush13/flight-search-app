@@ -1,5 +1,5 @@
 import {airports, carriers, flights} from './flight.data';
-import filterUtil from './FilterUtil';
+import {filterUtil} from '../util/FilterUtil';
 
 class FlightService{
 	constructor(){
@@ -66,7 +66,7 @@ class FlightService{
 	
 	getFlightFromSrcToDest(src, filterConfigs){
 		let out = []
-		this.flightsMap[src].forEach(flight => {
+		this.flightsMap[src] && this.flightsMap[src].forEach(flight => {
 			if(filterUtil.filter(flight, filterConfigs)){
 				let temp = Object.assign({}, flight)
 				temp.carrierDetails = this.carrierMap[temp.carrier]
@@ -97,4 +97,4 @@ class FlightService{
 		return map
 	}
 }
-export default new FlightService();
+export const flightService = new FlightService();

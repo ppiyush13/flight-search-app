@@ -1,9 +1,11 @@
-import tabBar from './js/TabBar';
-import slider from './js/Slider';
-import search from './js/Search';
-import viewModel from './js/ViewModel';
-import domHelper from './js/DomHelper';
-import util from './js/Util';
+import {
+	tabBar,
+	slider,
+	search,
+	vm,
+	domHelper,
+	util
+} from './js/Index'
 
 import './scss/base.scss';
 import './lib/multi_range_slider/multirange.css';
@@ -14,21 +16,21 @@ window.onload = ()=>{
 	tabBar.init();
 	slider.init();
 	search.init();
-	viewModel.init();
+	vm.init();
 	domHelper.init();
 	let defs = util.getDateInputDefaults();
 	
-	viewModel.origin = 'Mumbai';
-	viewModel.dest = 'bengaluru';
-	viewModel.departDate = defs[0];
-	viewModel.returnDate = defs[1];
-	viewModel.passengers = '2';
-	viewModel.minPrice = 2500;
-	viewModel.maxPrice = 15000;
+	vm.origin = 'Mumbai';
+	vm.dest = 'bengaluru';
+	vm.departDate = defs[0];
+	vm.returnDate = defs[1];
+	vm.passengers = '2';
+	vm.minPrice = 2500;
+	vm.maxPrice = 15000;
 	
-	viewModel.rangeValue = '2501,15000';
-	viewModel.rangeMin = '0';
-	viewModel.rangeMax= '20000';
+	vm.rangeValue = '2501,15000';
+	vm.rangeMin = '0';
+	vm.rangeMax= '20000';
 	
 	search.loadResult();
 }

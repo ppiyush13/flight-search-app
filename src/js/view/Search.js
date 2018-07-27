@@ -1,6 +1,6 @@
-import domHelper from './DomHelper';
-import flightService from './flight.service';
-import vm from './ViewModel';
+import {flightService} from '../service/flight.service'
+import {domHelper} from '../util/DomHelper' 
+import {vm} from './ViewModel'
 
 class Search{
 	init(){
@@ -64,7 +64,7 @@ class Search{
 				id: 'routeSrc',
 				type: 'equal',
 				field: 'routeSrc',
-				value : vm.origin,
+				value : userInputs.origin,
 				enabled: true,
 				applyStep: 'before'
 			},
@@ -72,7 +72,7 @@ class Search{
 				id: 'routeDest',
 				type: 'equal',
 				field: 'routeDest',
-				value : vm.dest,
+				value : userInputs.dest,
 				enabled: true,
 				applyStep: 'before'
 			},
@@ -80,7 +80,7 @@ class Search{
 				id: 'departTime',
 				type: 'dateEqual',
 				field: 'departTime',
-				value : new Date(vm.departDate),
+				value : new Date(userInputs.departDate),
 				enabled: true,
 				applyStep: 'before'
 			},
@@ -88,7 +88,7 @@ class Search{
 				id: 'passengers',
 				type: 'greaterThan',
 				field: 'availibility.adult',
-				value: vm.passengers,
+				value: userInputs.passengers,
 				enabled: true,
 				applyStep: 'before'
 			},
@@ -96,31 +96,31 @@ class Search{
 				id: 'oneWayPrice',
 				type: 'between',
 				field: 'fareDetails.adult',
-				minValue: vm.minPrice,
-				maxValue: vm.maxPrice,
-				enabled: !vm.returnSelected,
+				minValue: userInputs.minPrice,
+				maxValue: userInputs.maxPrice,
+				enabled: !userInputs.returnSelected,
 				applyStep: 'before'
 			},
 			{
 				id: 'returnPrice',
 				type: 'between',
 				field: flight => flight.sourceFlight.fareDetails.adult + flight.destFlight.fareDetails.adult,
-				minValue: vm.minPrice,
-				maxValue: vm.maxPrice,
-				enabled: vm.returnSelected,
+				minValue: userInputs.minPrice,
+				maxValue: userInputs.maxPrice,
+				enabled: userInputs.returnSelected,
 				applyStep: 'after'
 			},
-			{
+			/*{
 				id: 'carrier',
 				type: 'in',
 				field: 'carrier',
 				value: ['SG', 'UK'],
 				enabled: false,
 				applyStep: 'before'
-			}
+			}*/
 		]
 		return flightService.getFlights(filterConfigs, userInputs)
 	}
 }
 
-export default new Search();
+export const search =  new Search();

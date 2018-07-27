@@ -1,4 +1,4 @@
-import vm from './ViewModel';
+import {vm} from './ViewModel'
 
 class TabBar{
 	init(){
@@ -41,4 +41,4 @@ class TabBar{
 	}
 }
 
-export default new TabBar();
+export const tabBar = new TabBar();

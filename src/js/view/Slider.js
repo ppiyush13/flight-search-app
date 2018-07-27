@@ -1,4 +1,4 @@
-import vm from './ViewModel';
+import {vm} from './ViewModel'
 
 class Slider{
 	init(){
@@ -21,4 +21,4 @@ class Slider{
 	}
 }
 
-export default new Slider();
+export const slider = new Slider();

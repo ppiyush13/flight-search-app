@@ -70,6 +70,19 @@ class Util{
 			dd = '0' + dd
 		return `${y}-${m}-${dd}`
 	}
+	
+	toDateTime(str){
+		let dateTime = str.split('|'),
+			date = dateTime[0],
+			dateDtl = date.split('+'),
+			outDate = new Date();
+		if(dateDtl[0] == 'TODAY'){
+			var time = dateTime[1].split(':');
+			outDate.setHours(time[0], time[1], 0, 0);
+			outDate.setDate(outDate.getDate() + (dateDtl[1]|0));
+		}
+		return outDate;
+	}
 }
 
-export default new Util();
+export const util = new Util();

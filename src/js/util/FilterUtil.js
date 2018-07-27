@@ -1,4 +1,4 @@
-import util from './Util';
+import {util} from './Util';
 
 class FilterUtil{
 	
@@ -30,10 +30,4 @@ class FilterUtil{
 	}
 }
 
-export default new FilterUtil();
-
-let c = {
-	type: 'in',
-	field: 'carrier',
-	value : []
-}
+export const filterUtil =  new FilterUtil();
